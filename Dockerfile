@@ -5,7 +5,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --omit=dev && npm cache clean --force
 COPY . .
+
+# run as non-root user for security
 USER node
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# using node directly instead of npm to avoid extra process overhead
+CMD ["node", "server.js"]
