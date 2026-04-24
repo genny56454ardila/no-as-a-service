@@ -11,14 +11,14 @@ const PORT = process.env.PORT || 3000;
 // Load reasons from JSON
 const reasons = JSON.parse(fs.readFileSync('./reasons.json', 'utf-8'));
 
-// Rate limiter: 120 requests per minute per IP
+// Rate limiter: 60 requests per minute per IP (lowered from 120, seems more reasonable)
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 120,
+  max: 60,
   keyGenerator: (req, res) => {
     return req.headers['cf-connecting-ip'] || req.ip; // Fallback if header missing (or for non-CF)
   },
-  message: { error: "Too many requests, please try again later. (120 reqs/min/IP)" }
+  message: { error: "Too many requests, please try again later. (60 reqs/min/IP)" }
 });
 
 app.use(limiter);
