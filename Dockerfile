@@ -10,5 +10,8 @@ COPY . .
 USER node
 EXPOSE 3000
 
+# set a custom port via env var if needed, default 3000
+ENV PORT=3000
+
 # using node directly instead of npm to avoid extra process overhead
 CMD ["node", "server.js"]
