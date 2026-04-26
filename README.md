@@ -132,6 +132,6 @@ Here are some projects and websites that creatively integrate [no-as-a-service](
 
 ---
 
-## 🗒️ Personal Notes
+## 🗒️ Personal Notes (fork)
 
-> Forked this for learning purposes and to mess around with the API in a side project. Planning to hook it up to a Telegram bot that responds to requests with a random excuse. The default port `3000` conflicts with another local service I run, so I'll be using `PORT=4242 npm start` locally.
+> I'm using this as a learning project to understand how simple Express APIs are structured and rate-limited. Running it locally on port `8080` instead of `3000` to avoid conflicts with other dev servers I usually have running.
